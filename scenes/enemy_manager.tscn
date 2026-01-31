@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://w3rf7gxt0aqk"]
+
+[ext_resource type="Script" uid="uid://b2m7xj47cixdw" path="res://scripts/EnemyManager.gd" id="1_sqyd6"]
+
+[node name="EnemyManager" type="Node2D" unique_id=1795124133 node_paths=PackedStringArray("totem", "spawnPoints", "player", "targetTotem")]
+script = ExtResource("1_sqyd6")
+totem = NodePath("")
+spawnPoints = [NodePath("Spawns/SpawnPoint 1"), NodePath("Spawns/SpawnPoint 2"), NodePath("Spawns/SpawnPoint 3"), NodePath("Spawns/SpawnPoint 4")]
+player = NodePath("")
+targetTotem = [NodePath("")]
+
+[node name="Spawns" type="Node2D" parent="." unique_id=1736007473]
+
+[node name="SpawnPoint 1" type="Node2D" parent="Spawns" unique_id=1491184773]
+position = Vector2(354, 46)
+
+[node name="SpawnPoint 2" type="Node2D" parent="Spawns" unique_id=692618023]
+position = Vector2(360, 167)
+
+[node name="SpawnPoint 3" type="Node2D" parent="Spawns" unique_id=1477105840]
+position = Vector2(106, 198)
+
+[node name="SpawnPoint 4" type="Node2D" parent="Spawns" unique_id=1310508020]
+position = Vector2(34, 69)
