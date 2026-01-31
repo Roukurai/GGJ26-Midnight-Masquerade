@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1y4s2e2p44c2"
-path="res://.godot/imported/S_Death.png-cbacd048862743c4293438adaae96f46.ctex"
+uid="uid://pyswyfsksbog"
+path="res://.godot/imported/S_Walk.png-0b5e89ea696287e5a8d32d9c2bc88898.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemy/Sprites/S_Death.png"
-dest_files=["res://.godot/imported/S_Death.png-cbacd048862743c4293438adaae96f46.ctex"]
+source_file="res://Enemy/Sprites/Crowd Control/S_Walk.png"
+dest_files=["res://.godot/imported/S_Walk.png-0b5e89ea696287e5a8d32d9c2bc88898.ctex"]
 
 [params]
 

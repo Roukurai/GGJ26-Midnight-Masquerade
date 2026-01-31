@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6f136bmeiknk"
-path="res://.godot/imported/U_Attack.png-b6868141b97e7c3cd291a485862ede93.ctex"
+uid="uid://cg6pbqf5165gj"
+path="res://.godot/imported/U_Death.png-7cab5ba51915b2f8f60b38dac1245cd0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemy/Sprites/U_Attack.png"
-dest_files=["res://.godot/imported/U_Attack.png-b6868141b97e7c3cd291a485862ede93.ctex"]
+source_file="res://Enemy/Sprites/Rouge/U_Death.png"
+dest_files=["res://.godot/imported/U_Death.png-7cab5ba51915b2f8f60b38dac1245cd0.ctex"]
 
 [params]
 

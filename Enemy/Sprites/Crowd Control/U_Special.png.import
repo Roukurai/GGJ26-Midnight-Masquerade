@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dggt4xji34vse"
-path="res://.godot/imported/D_Walk.png-92a324d7b84d1a010a414ab42d201684.ctex"
+uid="uid://ccclmxavvkil3"
+path="res://.godot/imported/U_Special.png-aeb86bc45eba77ac708f3319849ea777.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemy/Sprites/D_Walk.png"
-dest_files=["res://.godot/imported/D_Walk.png-92a324d7b84d1a010a414ab42d201684.ctex"]
+source_file="res://Enemy/Sprites/Crowd Control/U_Special.png"
+dest_files=["res://.godot/imported/U_Special.png-aeb86bc45eba77ac708f3319849ea777.ctex"]
 
 [params]
 
