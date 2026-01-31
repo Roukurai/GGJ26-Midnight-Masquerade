@@ -449,8 +449,8 @@ shape = SubResource("RectangleShape2D_tefeu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2032490509]
 sprite_frames = SubResource("SpriteFrames_og1vs")
-animation = &"Walk_U"
-frame_progress = 0.82179254
+animation = &"Walk_D"
+frame_progress = 0.5310142
 speed_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1693468806]
