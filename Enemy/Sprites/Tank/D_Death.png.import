@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4jyrwh0hmj8t"
-path="res://.godot/imported/U_Walk.png-2898881f334a7a6f6c1bbc25b828ac4d.ctex"
+uid="uid://dv7yauk0cdipr"
+path="res://.godot/imported/D_Death.png-bf05968ba158e9e49caa31fdc7a3dc2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemy/Sprites/U_Walk.png"
-dest_files=["res://.godot/imported/U_Walk.png-2898881f334a7a6f6c1bbc25b828ac4d.ctex"]
+source_file="res://Enemy/Sprites/Tank/D_Death.png"
+dest_files=["res://.godot/imported/D_Death.png-bf05968ba158e9e49caa31fdc7a3dc2c.ctex"]
 
 [params]
 
