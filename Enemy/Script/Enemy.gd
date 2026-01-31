@@ -1,11 +1,26 @@
 extends Node
 
+@export var speed := 100.0
+var enemyType
+var targets: Node2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func set_enemy_type(type):
+	enemyType = type
+	apply_stats()
+	print(type)
+	
+func set_target(target: Node2D):
+	targets = target
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func apply_stats():
+	match enemyType:
+		0: # Tank
+			speed = 50
+		1: # Rouge
+			speed = 100
+		2: #Crow control
+			speed = 75
+			
+func _physics_process(delta):
+	if not targets:
+		return
