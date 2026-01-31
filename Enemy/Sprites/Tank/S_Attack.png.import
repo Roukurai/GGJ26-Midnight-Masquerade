@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg1ros3uw2ydd"
-path="res://.godot/imported/S_Walk.png-ac9f0f646f29a177ec2834b0a3681191.ctex"
+uid="uid://rt2j6j2eda5f"
+path="res://.godot/imported/S_Attack.png-eed88539161e5aaf5c775dcdcd959926.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemy/Sprites/S_Walk.png"
-dest_files=["res://.godot/imported/S_Walk.png-ac9f0f646f29a177ec2834b0a3681191.ctex"]
+source_file="res://Enemy/Sprites/Tank/S_Attack.png"
+dest_files=["res://.godot/imported/S_Attack.png-eed88539161e5aaf5c775dcdcd959926.ctex"]
 
 [params]
 
