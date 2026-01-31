@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://bpr03k78u8kyv"]
 
-[ext_resource type="PackedScene" uid="uid://bn3n7kt1v5vi0" path="res://scenes/enemy.tscn" id="1_p0t4i"]
 [ext_resource type="PackedScene" uid="uid://dncjqlsfkc85u" path="res://scenes/Totem.tscn" id="2_fpe6o"]
+[ext_resource type="Script" uid="uid://b2m7xj47cixdw" path="res://scripts/EnemyManager.gd" id="3_ayrsc"]
 
 [node name="Node2D" type="Node2D" unique_id=1605640804]
 
-[node name="Enemy" parent="." unique_id=498042739 instance=ExtResource("1_p0t4i")]
+[node name="Totem" parent="." unique_id=1240679494 instance=ExtResource("2_fpe6o")]
 
-[node name="Node2D" parent="." unique_id=1240679494 instance=ExtResource("2_fpe6o")]
-position = Vector2(28.53, 28.33)
+[node name="EnemyManager" type="Node2D" parent="." unique_id=435807396 node_paths=PackedStringArray("totem")]
+script = ExtResource("3_ayrsc")
+totem = NodePath("../Totem")
