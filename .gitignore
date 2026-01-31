@@ -1,3 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Visual Studio
+.vs/
+
+# Godot Git Plugin binaries
+addons/godot-git-plugin/windows/*.dll
