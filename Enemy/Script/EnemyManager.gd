@@ -4,10 +4,25 @@ var speed = 20
 
 var vel = Vector2.ZERO
 
-@onready var _animation_player = $AnimationPlayer
+enum {
+	SURROUND,
+	ATTACK,
+	HIT,
+	DEATH,
+}
 
-func _process(_delta):
-	if Input.is_action_pressed("ui_right"):
-		_animation_player.play("walk")
-	else:
-		_animation_player.stop()
+var state = SURROUND
+
+func _physics_process(delta):
+	match state:
+		SURROUND:
+			pass
+
+func  move(target, delta):
+	var dir = (target - global_position).normalized()
+	var desired_vel = dir * speed
+	var steering = (desired_vel - vel) * delta * 2.5
+	vel += steering
+	vel = move_and_slide()
+ 
+@onready var _animation_player = $AnimationPlayer
