@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dncjqlsfkc85u"]
+
+[ext_resource type="Texture2D" uid="uid://b38iax40x7hp0" path="res://EasterEggs/BocaChan.png" id="1_tmiox"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a2jfi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tmiox")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Totem" type="Node2D" unique_id=1240679494]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=956231449]
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_a2jfi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1077142276]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1250097530]
