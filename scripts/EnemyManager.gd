@@ -1,5 +1,4 @@
 extends Node2D
-@export var totem:Node2D
 
 enum EnemyType {
 	TANK,
@@ -20,7 +19,7 @@ enum TargetType {
 @export var maxEnemies: int = 50
 
 @export var player: Node2D
-@export var targetTotem: Array[Node2D]
+@export var targetTotem: Node2D
 
 var curEnemies := 0
 var spawnTimer := 0.0
@@ -49,21 +48,27 @@ func  SpawnEnemy():
 	if enemyS == null:
 		return
 	
-	var enemy := enemyS.instantiate()
+	var enemy = enemyS.instantiate()
 	enemy.global_position = sPoint.global_position
 	
 	enemy.set_enemy_type(enemyType)
 	
-	var targetType := TargetType.values().pick_random() as int
-	if(targetType == TargetType.PLAYER and player):
-		enemy.set_target(player)
-	else:
-		if not targetTotem.is_empty():
-			enemy.set_target(targetTotem.pick_random())
+	var targetType: TargetType = TargetType.values().pick_random() as int
+	
+	if(enemyType == EnemyType.TANK):
+			enemy.set_target(targetTotem)
+	elif (enemyType == EnemyType.ROUGE):
+		if(targetType == TargetType.PLAYER and player):
+			enemy.set_target(player)
+		else:
+			enemy.set_target(targetTotem)
+	elif (enemyType == EnemyType.CROWD_CONTROL):
+			enemy.set_target(targetTotem)
 			
 	curEnemies += 1
 	enemy.tree_exited.connect(_on_enemy_destroyed)
 	add_child(enemy)
+	print(sPoint)
 	
 func _on_enemy_destroyed():
 	curEnemies -= 1
