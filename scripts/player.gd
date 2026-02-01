@@ -12,7 +12,11 @@ const SPEED = 150
 @onready var fire_timer: Timer = $FireTimer
 @onready var mask_sprite: AnimatedSprite2D = $Mask
 
-var _current_mask: Dictionary = {}
+var _current_mask: Dictionary = {
+	"damage": 10,
+	"projectile_speed": 300.0,
+	"effect": "NONE"
+}
 
 # =====================
 # BUILT-IN
@@ -77,8 +81,7 @@ func _attack():
 		projectile.direction = _random_direction()
 
 	# Configure projectile with current mask data (once, at spawn)
-	if _current_mask:
-		projectile.setup(_current_mask)
+	projectile.setup(_current_mask)
 
 func _get_random_nearby_enemy():
 	var nearby_enemies := []
