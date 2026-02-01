@@ -12,11 +12,7 @@ const SPEED = 150
 @onready var fire_timer: Timer = $FireTimer
 @onready var mask_sprite: AnimatedSprite2D = $Mask
 
-var _current_mask: Dictionary = {
-	"damage": 10,
-	"projectile_speed": 300.0,
-	"effect": "NONE"
-}
+var _current_mask: Dictionary = MaskPickup.MASKS[0]
 
 # =====================
 # BUILT-IN
