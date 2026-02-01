@@ -5,37 +5,51 @@ extends CharacterBody2D
 @export var attack_cooldown := 1.0
 @export var health := 100
 @export var animated : AnimatedSprite2D
+@export var damage := 15
 
 var enemyType
 var targets: Node2D
 var can_attack := true
 var state: State = State.MOVE
+var death:= false
+var manager
 
 enum State {
 	MOVE,
 	ATTACK,
 }
 
+func _ready():
+	manager = get_tree().get_first_node_in_group("Enemies")
+
 func set_enemy_type(type: int):
 	enemyType = type
 	apply_stats()
-	print(type)
+	match type:
+		0:
+			print("Tank")
+		1:
+			print("Rouge")
+		2:
+			print("CC")
 	
 func set_target(target: Node2D):
 	targets = target
-	print(target)
 
 func apply_stats():
 	match enemyType:
 		0: # Tank
 			health = 100
 			speed = 25
+			damage = 50
 		1: # Rouge
 			health = 50
 			speed = 100
+			damage = 10
 		2: #Crow control
 			health = 75
 			speed = 75
+			damage = 25
 			
 func _physics_process(delta):
 	
@@ -57,14 +71,8 @@ func _physics_process(delta):
 		var body := collision.get_collider()
 		#var other = collision.get_collider()
 		if body.is_in_group("player"):
-			print("Choqué con el player")
-			collition_body(collision)
-			
-		elif body.is_in_group("Defend"):
-			print("Choqué con el totem")
-			collition_totem(collision)
-			
-		
+			if death == false:
+				collition_body(collision)
 
 func move_towards_target():
 	var dir := (targets.global_position - global_position).normalized()
@@ -90,20 +98,23 @@ func take_damage(damage: int):
 		
 	if(health <= 0):
 		speed = 0
-		set_deferred("disable", true)
+		death = true
+		$CollisionShape2D.set_deferred("disable", true)
 		#animacion muerte
 		print("Muerto")
 		animated.play("Death_S")
+		manager.has_method("_on_enemy_destroyed")
 		await get_tree().create_timer(0.6).timeout
 		queue_free()
-		
-	print(health)
 	pass
 
 func collition_body(body: KinematicCollision2D):	
-	print(body)
+	pass
 	
 func collition_totem(body: KinematicCollision2D):	
 	print("muerto por totem")
 	take_damage(health)
-	print(body)
+	death = true
+	
+func instant_kill():
+	take_damage(health)
