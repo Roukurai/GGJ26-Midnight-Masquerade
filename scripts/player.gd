@@ -8,15 +8,54 @@ const SPEED = 150
 @export var fire_rate := 0.25  # 4 shots/sec
 @export var attack_range := 250.0
 @export var enemy_group := "Enemy"
+@export var iFrames_duration := 1.0
 
 @export var player_data := {
 	"name": "Player",
 	"attack_damage": 1,
-	"health": 10
+	"health": 10,
+	"mask_type": ProjectileType.BASIC
 }
 
 @onready var fire_timer: Timer = $FireTimer
+enum ProjectileType {
+	BASIC,
+	FIRE,
+	ICE,
+	LIGHTNING,
+	POISON
+}
+enum EffectType {
+	NONE,
+	DOT,
+	SLOW,
+	STUN,
+	CONFUSION
+}
 
+
+var projectile_data: Dictionary = {
+	ProjectileType.BASIC: {
+		"damage": 1,
+		"effect": EffectType.NONE
+	},
+	ProjectileType.FIRE: {
+		"damage": 2,
+		"effect": EffectType.DOT
+	},
+	ProjectileType.ICE: {
+		"damage": 1,
+		"effect": EffectType.SLOW
+	},
+	ProjectileType.LIGHTNING: {
+		"damage": 3,
+		"effect": EffectType.STUN
+	},	
+	ProjectileType.POISON: {
+		"damage": 1,
+		"effect": EffectType.CONFUSION
+	}
+}
 # =====================
 # BUILT-IN
 # =====================

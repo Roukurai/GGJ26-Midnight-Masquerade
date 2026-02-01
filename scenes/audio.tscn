@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cffg31rv30w7a"]
+
+[ext_resource type="AudioStream" uid="uid://bmsjtgmvjvai6" path="res://assets/audio/GGJ26_Map_BackLyr_Lp.wav" id="1_lymfh"]
+[ext_resource type="Script" uid="uid://cl1rj8n2k4hxe" path="res://scripts/audio_stream_player.gd" id="1_p5uep"]
+[ext_resource type="AudioStream" uid="uid://bcp3u6ttxp48q" path="res://assets/audio/GGJ26_Map_BackLyr_Drums1_Lp.wav" id="2_p5uep"]
+[ext_resource type="AudioStream" uid="uid://bg1tac75xlnm4" path="res://assets/audio/GGJ26_Map_BackLyr_Drums2_Lp.wav" id="3_dn6px"]
+[ext_resource type="AudioStream" uid="uid://dwkgrenibaa4g" path="res://assets/audio/GGJ26_Map_BackLyr_Drums3_Lp.wav" id="4_8ou3m"]
+[ext_resource type="AudioStream" uid="uid://hfwrkhwuglq8" path="res://assets/audio/GGJ26_Map_BackLyr_Bass1_Lp.wav" id="5_iynmv"]
+[ext_resource type="AudioStream" uid="uid://33y85lohxv2v" path="res://assets/audio/GGJ26_Map_BackLyr_Bass2_Lp.wav" id="6_ggveo"]
+[ext_resource type="AudioStream" uid="uid://4v0gflmg0ca5" path="res://assets/audio/GGJ26_Map_Enemies_Lyr1_Lp.wav" id="7_nwc8s"]
+[ext_resource type="AudioStream" uid="uid://ddmoxlld2fhru" path="res://assets/audio/GGJ26_Map_Enemies_Lyr2_Lp.wav" id="8_bf4yj"]
+[ext_resource type="AudioStream" uid="uid://dbbgi6aso5cge" path="res://assets/audio/GGJ26_Map_Enemies_Lyr3_Lp.wav" id="9_xrc4d"]
+[ext_resource type="AudioStream" uid="uid://cbncjjr80q1qw" path="res://assets/audio/GGJ26_Map_Enemies_Lyr4_Lp.wav" id="10_j2csl"]
+
+[node name="AudioController" type="Node2D" unique_id=1185632607]
+script = ExtResource("1_p5uep")
+
+[node name="Map_Back" type="AudioStreamPlayer" parent="." unique_id=1620295218]
+stream = ExtResource("1_lymfh")
+volume_db = -80.0
+
+[node name="Drum_1" type="AudioStreamPlayer" parent="." unique_id=2102750889]
+stream = ExtResource("2_p5uep")
+volume_db = -80.0
+
+[node name="Drum_2" type="AudioStreamPlayer" parent="." unique_id=952532191]
+stream = ExtResource("3_dn6px")
+volume_db = -80.0
+
+[node name="Drum_3" type="AudioStreamPlayer" parent="." unique_id=1890982603]
+stream = ExtResource("4_8ou3m")
+volume_db = -80.0
+
+[node name="Bass_1" type="AudioStreamPlayer" parent="." unique_id=1669828789]
+stream = ExtResource("5_iynmv")
+volume_db = -80.0
+
+[node name="Bass_2" type="AudioStreamPlayer" parent="." unique_id=1743731055]
+stream = ExtResource("6_ggveo")
+volume_db = -80.0
+
+[node name="Enemy_Lyr1" type="AudioStreamPlayer" parent="." unique_id=1972454906]
+stream = ExtResource("7_nwc8s")
+volume_db = -80.0
+
+[node name="Enemy_Lyr2" type="AudioStreamPlayer" parent="." unique_id=697074143]
+stream = ExtResource("8_bf4yj")
+volume_db = -80.0
+
+[node name="Enemy_Lyr3" type="AudioStreamPlayer" parent="." unique_id=1776535323]
+stream = ExtResource("9_xrc4d")
+volume_db = -80.0
+
+[node name="Enemy_Lyr4" type="AudioStreamPlayer" parent="." unique_id=1381124034]
+stream = ExtResource("10_j2csl")
+volume_db = -80.0
