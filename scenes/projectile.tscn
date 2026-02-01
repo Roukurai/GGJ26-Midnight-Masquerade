@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c8lha33newgx7"]
+
+[ext_resource type="Script" uid="uid://dme2w3strvxxk" path="res://scripts/projectile.gd" id="1_c8fcr"]
+[ext_resource type="Texture2D" uid="uid://xe7ejyd4g6b1" path="res://assets/placeholders/F8E9C014-4F90-4FF8-897B-7B4CCFDC799E_4_5005_c.jpeg" id="2_q3m7n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6aapk"]
+
+[node name="Projectile" type="Area2D" unique_id=1592163651]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_c8fcr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=757083910]
+shape = SubResource("RectangleShape2D_6aapk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1152642177]
+texture = ExtResource("2_q3m7n")
