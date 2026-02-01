@@ -30,6 +30,8 @@ Enemy=""
 player=""
 projectile=""
 Defend=""
+Enemies=""
+world=""
 
 [input]
 

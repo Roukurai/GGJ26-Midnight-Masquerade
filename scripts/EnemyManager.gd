@@ -39,6 +39,7 @@ func _process(delta):
 		SpawnEnemy()
 		
 func  SpawnEnemy():
+	player = get_tree().get_first_node_in_group("player")
 	if spawnPoints.is_empty() or enemyPrefab.is_empty():
 		return
 		
@@ -70,7 +71,6 @@ func  SpawnEnemy():
 	curEnemies += 1
 	enemy.tree_exited.connect(_on_enemy_destroyed)
 	add_child(enemy)
-	print(sPoint)
 	
 func _on_enemy_destroyed():
 	curEnemies -= 1
