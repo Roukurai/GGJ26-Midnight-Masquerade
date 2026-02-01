@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var attack_distance := 40.0
 @export var attack_cooldown := 1.0
 @export var health := 100
+@export var animated : AnimatedSprite2D
 
 var enemyType
 var targets: Node2D
@@ -56,8 +57,14 @@ func _physics_process(delta):
 		var body := collision.get_collider()
 		#var other = collision.get_collider()
 		if body.is_in_group("player"):
-			print("Choqué con un enemigo")
+			print("Choqué con el player")
 			collition_body(collision)
+			
+		elif body.is_in_group("Defend"):
+			print("Choqué con el totem")
+			collition_totem(collision)
+			
+		
 
 func move_towards_target():
 	var dir := (targets.global_position - global_position).normalized()
@@ -82,14 +89,21 @@ func take_damage(damage: int):
 		health -= damage
 		
 	if(health <= 0):
+		speed = 0
+		set_deferred("disable", true)
 		#animacion muerte
 		print("Muerto")
-		await get_tree().create_timer(attack_cooldown).timeout
+		animated.play("Death_S")
+		await get_tree().create_timer(0.6).timeout
 		queue_free()
+		
+	print(health)
 	pass
- 
 
-
-func collition_body(body: KinematicCollision2D):
+func collition_body(body: KinematicCollision2D):	
+	print(body)
 	
+func collition_totem(body: KinematicCollision2D):	
+	print("muerto por totem")
+	take_damage(health)
 	print(body)

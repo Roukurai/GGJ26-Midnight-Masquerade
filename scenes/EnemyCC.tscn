@@ -440,10 +440,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="EnemyCC" type="CharacterBody2D" unique_id=498042739 groups=["Enemy"]]
+[node name="EnemyCC" type="CharacterBody2D" unique_id=498042739 node_paths=PackedStringArray("animated") groups=["Enemy"]]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 13
 script = ExtResource("1_jmfue")
+animated = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=771111296]
 position = Vector2(0, 2)
@@ -451,7 +452,7 @@ shape = SubResource("RectangleShape2D_tefeu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2032490509]
 sprite_frames = SubResource("SpriteFrames_og1vs")
-animation = &"Walk_U"
+animation = &"Death_S"
 speed_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1693468806]

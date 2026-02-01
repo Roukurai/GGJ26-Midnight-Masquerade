@@ -440,10 +440,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="EnemyTank" type="CharacterBody2D" unique_id=498042739 groups=["Enemy"]]
+[node name="EnemyTank" type="CharacterBody2D" unique_id=498042739 node_paths=PackedStringArray("animated") groups=["Enemy"]]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 13
 script = ExtResource("1_8qclf")
+animated = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=771111296]
 position = Vector2(0, 2)

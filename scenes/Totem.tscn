@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://b38iax40x7hp0" path="res://EasterEggs/BocaChan.png" id="1_tmiox"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmiox"]
+size = Vector2(58, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_a2jfi"]
 animations = [{
 "frames": [{
@@ -13,16 +16,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmiox"]
-size = Vector2(58, 48)
+[node name="Totem" type="Node2D" unique_id=1240679494 groups=["Defend", "Totem"]]
 
-[node name="Totem" type="Node2D" unique_id=1240679494 groups=["Totem"]]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=502044933 groups=["Defend", "Totem"]]
+motion_mode = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=956231449]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1250097530 groups=["Defend", "Totem"]]
+shape = SubResource("RectangleShape2D_tmiox")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=956231449]
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_a2jfi")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1077142276]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1250097530]
-shape = SubResource("RectangleShape2D_tmiox")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1077142276]
+root_node = NodePath("../..")
