@@ -5,8 +5,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6aapk"]
 
-[node name="Projectile" type="Area2D" unique_id=1592163651]
-collision_layer = 2
+[node name="Projectile" type="Area2D" unique_id=1592163651 groups=["projectile"]]
+collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_c8fcr")
 

@@ -523,11 +523,10 @@ tile_set = SubResource("TileSet_5h6nw")
 [node name="Totem" parent="." unique_id=1240679494 instance=ExtResource("2_fpe6o")]
 position = Vector2(485, 291)
 
-[node name="EnemyManagerr" type="Node2D" parent="." unique_id=2041394375 node_paths=PackedStringArray("spawnPoints", "player", "targetTotem")]
+[node name="EnemyManagerr" type="Node2D" parent="." unique_id=2041394375 node_paths=PackedStringArray("spawnPoints", "targetTotem")]
 script = ExtResource("6_k8cv4")
 spawnPoints = [NodePath("Spawns2/SpawnPoint 1"), NodePath("Spawns2/SpawnPoint 2"), NodePath("Spawns2/SpawnPoint 3"), NodePath("Spawns2/SpawnPoint 4")]
 enemyPrefab = Array[PackedScene]([ExtResource("7_7l0k3"), ExtResource("8_1xatg"), ExtResource("9_mba7s")])
-player = NodePath("")
 targetTotem = NodePath("../Totem")
 
 [node name="Spawns2" type="Node2D" parent="EnemyManagerr" unique_id=881122042]
