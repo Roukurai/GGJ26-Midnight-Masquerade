@@ -19,3 +19,6 @@ shape = SubResource("RectangleShape2D_q7r4k")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=822153762]
 zoom = Vector2(2.75, 2.75)
+
+[node name="FireTimer" type="Timer" parent="." unique_id=171662500]
+wait_time = 0.5
