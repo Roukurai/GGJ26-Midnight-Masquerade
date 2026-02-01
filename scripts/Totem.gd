@@ -6,6 +6,7 @@ var world
 
 func _ready():
 	world = get_tree().get_first_node_in_group("world")
+	print(world)
 	body_entered.connect(_on_body_entered)
 	
 func _on_body_entered(body: Node):
@@ -15,9 +16,9 @@ func _on_body_entered(body: Node):
 		reduceLife(body.damage)
 		
 func reduceLife(life: int):
-	totemLife -= life
-	print("life: ", totemLife)
-	
-	if totemLife <= 0:
-		print("perdiste!")
-		#world.has_method("end_game")
+	if totemLife > 0:
+		totemLife -= life
+		print("life: ", totemLife)	
+	elif totemLife <= 0:
+		if world and world.has_method("_end_game"):
+			world._end_game()

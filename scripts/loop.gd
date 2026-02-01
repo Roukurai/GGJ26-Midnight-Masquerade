@@ -26,6 +26,10 @@ func on_wave_escalation():
 
 func on_wave_cleared():
 	music.enemies_defeated()
+	
+func _end_game():
+	print("You lose the game!")
+	get_tree().change_scene_to_file("res://scenes/credit.tscn")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

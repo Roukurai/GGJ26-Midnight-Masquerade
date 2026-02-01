@@ -74,6 +74,7 @@ func  SpawnEnemy():
 	
 func _on_enemy_destroyed():
 	curEnemies -= 1
+	print("enemies: ", curEnemies)
 	#var enemyS := enemyPrefab.assign(enemyId)
 	#var enemy := enemyPrefab.insert()
 	
