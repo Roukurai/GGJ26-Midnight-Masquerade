@@ -124,7 +124,7 @@ projectile_scene = ExtResource("2_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=73964155]
 sprite_frames = SubResource("SpriteFrames_a8ls1")
-animation = &"NONE"
+animation = &"BASIC"
 autoplay = "NONE"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1784475813]

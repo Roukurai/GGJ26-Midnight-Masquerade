@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://chlmvmmls4v3"
+path="res://.godot/imported/DINO BOSS THEME SHORT.wav-6aa0d343f4846c9c0ce2b7551ac4fe54.sample"
+
+[deps]
+
+source_file="res://assets/audio/DINO BOSS THEME SHORT.wav"
+dest_files=["res://.godot/imported/DINO BOSS THEME SHORT.wav-6aa0d343f4846c9c0ce2b7551ac4fe54.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bve038gdm2kxl"
+path="res://.godot/imported/GGJ26_TitleScreen2_Lp.wav-60d6da776f5b24c67c288973004b078e.sample"
+
+[deps]
+
+source_file="res://assets/audio/MusicFiles - Title Screen/GGJ26_TitleScreen2_Lp.wav"
+dest_files=["res://.godot/imported/GGJ26_TitleScreen2_Lp.wav-60d6da776f5b24c67c288973004b078e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

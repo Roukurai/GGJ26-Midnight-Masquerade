@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bdymaldmuey82" path="res://assets/placeholders/BDD592C1-683F-4ED9-AEA8-90D38B790EAE_4_5005_c.jpeg" id="3_tefeu"]
 [ext_resource type="Texture2D" uid="uid://xe7ejyd4g6b1" path="res://assets/placeholders/F8E9C014-4F90-4FF8-897B-7B4CCFDC799E_4_5005_c.jpeg" id="4_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://1ar737no2dik" path="res://assets/placeholders/000C1379-9354-425D-9BA0-487B5725FBCC_4_5005_c.jpeg" id="5_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://dgfjw1h6m4hug" path="res://assets/audio/MusicFiles - Title Screen/GGJ26_TitleScreen1_Lp.wav" id="7_o6xl0"]
 
 [node name="MarginContainer" type="MarginContainer" unique_id=1038529393]
 anchors_preset = 15
@@ -60,6 +61,10 @@ size_flags_horizontal = 3
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/CenterContainer" unique_id=1276037719]
 layout_mode = 2
 texture = ExtResource("5_tbgi4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=839398184]
+stream = ExtResource("7_o6xl0")
+autoplay = true
 
 [connection signal="button_up" from="HBoxContainer/VBoxContainer/VBoxContainer/Start" to="." method="_on_start_button_up"]
 [connection signal="button_up" from="HBoxContainer/VBoxContainer/VBoxContainer/About" to="." method="_on_about_button_up"]

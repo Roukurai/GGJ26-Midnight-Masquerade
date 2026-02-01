@@ -8,6 +8,7 @@ const SPEED = 150
 @export var fire_rate := 0.25  # 4 shots/sec
 @export var attack_range := 250.0
 @export var enemy_group := "Enemy"
+@export var animation_names: Array[String] = ["BASIC", "FIRE", "ICE", "NONE"]
 
 @onready var fire_timer: Timer = $FireTimer
 @onready var mask_sprite: AnimatedSprite2D = $Mask
@@ -110,7 +111,6 @@ func _update_mask_visual(mask_data: Dictionary) -> void:
 	mask_sprite.visible = true
 	
 	# Animation names based on sprite_index (must match SpriteFrames order in player.tscn)
-	var animation_names := ["BASIC", "FIRE", "ICE", "NONE"]
 	var sprite_index: int = mask_data.sprite_index
 	
 	if sprite_index >= 0 and sprite_index < animation_names.size():
