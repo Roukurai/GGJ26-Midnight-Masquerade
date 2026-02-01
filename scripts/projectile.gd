@@ -2,17 +2,30 @@ class_name Projectile
 extends Area2D
 
 # =====================
-# CONFIGURATION
+# CONFIGURATION (set via setup())
 # =====================
-@export var speed: float = 450.0
-@export var damage: int = 1
-@export var lifetime: float = 3.0        # seconds
+var speed: float = 300.0
+var damage: int = 1
+var effect: String = "NONE"
 
 # =====================
 # STATE
 # =====================
 var direction: Vector2 = Vector2.ZERO
 var _time_alive: float = 0.0
+
+# =====================
+# PUBLIC
+# =====================
+func setup(mask_data: Dictionary) -> void:
+	"""Configure projectile once at spawn from Dictionary. Never called again."""
+	var projectile_speed: float = mask_data.projectile_speed
+	var dmg: int = mask_data.damage
+	var eff: String = mask_data.effect
+	
+	speed = projectile_speed
+	damage = dmg
+	effect = eff
 
 # =====================
 # BUILT-IN
@@ -32,7 +45,7 @@ func _physics_process(delta):
 
 	# Lifetime handling
 	_time_alive += delta
-	if _time_alive >= lifetime:
+	if _time_alive >= 3.0:
 		queue_free()
 
 # =====================
