@@ -140,4 +140,3 @@ wait_time = 0.5
 [node name="Mask" type="AnimatedSprite2D" parent="." unique_id=1097206694]
 sprite_frames = SubResource("SpriteFrames_a8ls1")
 animation = &"NONE"
-autoplay = ""
