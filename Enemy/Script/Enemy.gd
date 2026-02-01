@@ -52,10 +52,10 @@ func _physics_process(delta):
 				state = State.MOVE
 				
 	for i in range(get_slide_collision_count()):
-		#var collision = get_slide_collision(i)
-		var collision = move_and_collide(velocity * delta)
+		var collision = get_slide_collision(i)
+		var body := collision.get_collider()
 		#var other = collision.get_collider()
-		if collision:
+		if body.is_in_group("player"):
 			print("Choqué con un enemigo")
 			collition_body(collision)
 
@@ -91,4 +91,5 @@ func take_damage(damage: int):
 
 
 func collition_body(body: KinematicCollision2D):
+	
 	print(body)
