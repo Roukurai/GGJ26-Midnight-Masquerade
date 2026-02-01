@@ -100,12 +100,51 @@ El juego debe entenderse en segundos, incluso para alguien que lo prueba por pri
 
 ### Audio
 
-- Música con atmósfera nocturna / misteriosa
-- Efectos claros para:
-  - Cambio de máscara
-  - Ataques
-  - Daño al objetivo
-  - Oleadas
+Sistema de música adaptativo por capas que reacciona a las oleadas mientras mantiene un ritmo constante de movimiento del jugador.
+
+#### Reglas del Sistema de Audio
+- **Sin cortes bruscos:** todo el audio inicia con fade-in y termina con fade-out
+- **Orientado a estados:** el audio cambia solo cuando cambia el estado de juego
+- **Capas centradas en el jugador:** persisten durante el combate
+
+#### Capas de Audio
+| Capa | Comportamiento | Descripción |
+|------|----------------|-------------|
+| **Bass 1** | Siempre activa | Representa el caminar / latido del corazón |
+| **Bass 2** | Esporádica | Fade in/out aleatorio durante interludios |
+| **Drums 1-3** | Aleatorio | Puede sonar durante exploración y combate |
+| **Map_Back** | Solo interlude | Reproduce cuando no hay enemigos; fade out al inicio de oleada |
+| **Enemy Layers 1-4** | Solo oleadas | Una capa a la vez; transicionan en orden (1 → 4 → loop) |
+
+#### Flujo de Gameplay
+
+```mermaid
+flowchart TD
+    A[Inicio / Entre oleadas] --> B[Map_Back + Bass + drums aleatorios]
+    B --> C[Inicia oleada]
+    C --> D[Map_Back fade out]
+    D --> E[Enemy music fade in]
+    E --> F[Bass + drums continúan]
+    F --> G[Escalada de oleada]
+    G --> H[Transición entre capas enemy]
+    H --> I[Oleada terminada]
+    I --> J[Enemy layers fade out]
+    J --> K[Map_Back fade in]
+    K --> B
+```
+
+#### API Pública
+- `enter_map()` → Reproduce audio de interlude (sin enemigos)
+- `enemies_appear()` → Inicia música de enemigos, detiene Map_Back
+- `enemy_next_layer()` → Avanza a la siguiente capa de enemigo
+- `enemies_defeated()` → Detiene capas enemy, retorna a interlude
+
+#### Efectos de Sonido Requeridos
+- Cambio de máscara
+- Ataques
+- Daño al objetivo
+- Inicio de oleada
+- Victoria de oleada
 
 ### Arte
 
