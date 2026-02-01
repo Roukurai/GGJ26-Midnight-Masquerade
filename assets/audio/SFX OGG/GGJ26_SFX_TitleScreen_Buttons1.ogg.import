@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dtb81dqa7s1vt"
+path="res://.godot/imported/GGJ26_SFX_TitleScreen_Buttons1.ogg-53055d792a6e8fa895a4a0419f35163e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/SFX OGG/GGJ26_SFX_TitleScreen_Buttons1.ogg"
+dest_files=["res://.godot/imported/GGJ26_SFX_TitleScreen_Buttons1.ogg-53055d792a6e8fa895a4a0419f35163e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

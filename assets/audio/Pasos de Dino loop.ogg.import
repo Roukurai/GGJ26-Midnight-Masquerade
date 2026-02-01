@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cd5v81yh3tjd7"
+path="res://.godot/imported/Pasos de Dino loop.ogg-93fb5e1c3346e1c1a0704982ee5942fd.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/Pasos de Dino loop.ogg"
+dest_files=["res://.godot/imported/Pasos de Dino loop.ogg-93fb5e1c3346e1c1a0704982ee5942fd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

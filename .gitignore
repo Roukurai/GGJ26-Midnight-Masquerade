@@ -7,3 +7,4 @@
 
 # Godot Git Plugin binaries
 addons/godot-git-plugin/windows/*.dll
+Releases/
