@@ -21,6 +21,7 @@ const SPEED = 150
 func _ready():
 	randomize() # VERY important
 	fire_timer.wait_time = fire_rate
+	fire_timer.timeout.connect(_attack)
 	fire_timer.start()
 
 func _physics_process(delta):
