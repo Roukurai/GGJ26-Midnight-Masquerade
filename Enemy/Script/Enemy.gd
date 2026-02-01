@@ -44,11 +44,11 @@ func apply_stats():
 			damage = 50
 		1: # Rouge
 			health = 50
-			speed = 100
+			speed = 75
 			damage = 10
 		2: #Crow control
 			health = 75
-			speed = 75
+			speed = 50
 			damage = 25
 			
 func _physics_process(delta):
