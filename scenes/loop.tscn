@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dyevk8d0br7o5"]
 
 [ext_resource type="Script" uid="uid://cm87gj5uw1tt5" path="res://scripts/loop.gd" id="1_kyqv0"]
-[ext_resource type="PackedScene" uid="uid://dncjqlsfkc85u" path="res://scenes/Totem.tscn" id="2_fpe6o"]
+[ext_resource type="PackedScene" uid="uid://5bmiuhu3qjcr" path="res://scenes/Totem.tscn" id="2_fpe6o"]
 [ext_resource type="Texture2D" uid="uid://4b7sulwy0g2t" path="res://assets/placeholders/terrain.png" id="3_kyqv0"]
 [ext_resource type="PackedScene" uid="uid://w3rf7gxt0aqk" path="res://scenes/enemy_manager.tscn" id="4_gdvn4"]
 
