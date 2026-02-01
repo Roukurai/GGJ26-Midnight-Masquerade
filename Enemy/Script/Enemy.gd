@@ -51,6 +51,14 @@ func _physics_process(delta):
 			if dist > attack_distance:
 				state = State.MOVE
 				
+	for i in range(get_slide_collision_count()):
+		#var collision = get_slide_collision(i)
+		var collision = move_and_collide(velocity * delta)
+		#var other = collision.get_collider()
+		if collision:
+			print("Choqué con un enemigo")
+			collition_body(collision)
+
 func move_towards_target():
 	var dir := (targets.global_position - global_position).normalized()
 	velocity = dir * speed
@@ -79,3 +87,8 @@ func take_damage(damage: int):
 		await get_tree().create_timer(attack_cooldown).timeout
 		queue_free()
 	pass
+ 
+
+
+func collition_body(body: KinematicCollision2D):
+	print(body)
