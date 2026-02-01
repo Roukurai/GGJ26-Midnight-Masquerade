@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://dncjqlsfkc85u"]
+[gd_scene format=3 uid="uid://5bmiuhu3qjcr"]
 
+[ext_resource type="Script" uid="uid://cmwcrds4dteyb" path="res://scripts/Totem.gd" id="1_a2jfi"]
 [ext_resource type="Texture2D" uid="uid://b38iax40x7hp0" path="res://EasterEggs/BocaChan.png" id="1_tmiox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmiox"]
+size = Vector2(58, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a2jfi"]
 animations = [{
@@ -13,12 +17,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Totem" type="Node2D" unique_id=1240679494]
+[node name="Totem" type="Node2D" unique_id=1240679494 groups=["Defend", "Totem"]]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=956231449]
+[node name="Area2D" type="Area2D" parent="." unique_id=96590205 groups=["Defend", "Totem"]]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_a2jfi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1250097530 groups=["Defend", "Totem"]]
+shape = SubResource("RectangleShape2D_tmiox")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=956231449]
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_a2jfi")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1077142276]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1250097530]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D" unique_id=1077142276]
+root_node = NodePath("../..")

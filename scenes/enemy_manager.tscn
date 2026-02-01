@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://w3rf7gxt0aqk"]
 
 [ext_resource type="Script" uid="uid://b2m7xj47cixdw" path="res://scripts/EnemyManager.gd" id="1_sqyd6"]
+[ext_resource type="PackedScene" uid="uid://bn3n7kt1v5vi0" path="res://scenes/EnemyTank.tscn" id="2_aojfi"]
+[ext_resource type="PackedScene" uid="uid://dgiwbcn140dwp" path="res://scenes/EnemyRouge.tscn" id="3_a8nnw"]
+[ext_resource type="PackedScene" uid="uid://3m8l3nvdivu5" path="res://scenes/EnemyCC.tscn" id="4_cg41x"]
 
-[node name="EnemyManager" type="Node2D" unique_id=1795124133 node_paths=PackedStringArray("totem", "spawnPoints", "player", "targetTotem")]
+[node name="EnemyManager" type="Node2D" unique_id=1795124133 node_paths=PackedStringArray("spawnPoints", "player", "targetTotem")]
 script = ExtResource("1_sqyd6")
-totem = NodePath("")
 spawnPoints = [NodePath("Spawns/SpawnPoint 1"), NodePath("Spawns/SpawnPoint 2"), NodePath("Spawns/SpawnPoint 3"), NodePath("Spawns/SpawnPoint 4")]
-player = NodePath("")
-targetTotem = [NodePath("")]
+enemyPrefab = Array[PackedScene]([ExtResource("2_aojfi"), ExtResource("3_a8nnw"), ExtResource("4_cg41x")])
+player = NodePath("Spawns")
+targetTotem = NodePath("Spawns")
 
 [node name="Spawns" type="Node2D" parent="." unique_id=1736007473]
 
