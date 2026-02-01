@@ -6,6 +6,8 @@ const SPEED = 150
 @export var acceleration := 1.0
 @export var projectile_scene: PackedScene
 @export var fire_rate := 0.25  # 4 shots/sec
+@export var attack_range := 250.0
+@export var enemy_group := "Enemy"
 
 @export var player_data := {
 	"name": "Player",
@@ -41,13 +43,54 @@ func _player_movement(delta):
 
 func _attack():
 	if projectile_scene == null:
+		push_warning("Player: projectile_scene is null!")
 		return
 
 	var projectile := projectile_scene.instantiate()
-	projectile.global_position = Vector2.ZERO
-	projectile.direction = _random_direction()
-
+	
+	# Add to tree FIRST, then set position as local coordinates
+	# This avoids the global_position -> local conversion bug in add_child()
 	add_child(projectile)
+	
+	# Set position as local coordinates relative to player (at origin = same as player position)
+	projectile.position = Vector2.ZERO
+
+	# DEBUG: Log enemy detection status
+	var all_enemies := get_tree().get_nodes_in_group(enemy_group)
+	print("DEBUG: Total enemies in group 'Enemy': ", all_enemies.size())
+	
+	var target = _get_random_nearby_enemy()
+	print("DEBUG: Target found: ", target)
+	
+	if target:
+		projectile.direction = (target.global_position - global_position).normalized()
+	else:
+		projectile.direction = _random_direction()
+		print("DEBUG: Using random direction (no nearby enemies)")
+
+func _get_random_nearby_enemy():
+	var nearby_enemies := []
+	var all_group_enemies := get_tree().get_nodes_in_group(enemy_group)
+	print("DEBUG: Checking ", all_group_enemies.size(), " enemies...")
+	
+	for enemy in all_group_enemies:
+		# Skip invalid enemies (queued for deletion)
+		if not is_instance_valid(enemy):
+			continue
+
+		var dist := global_position.distance_to(enemy.global_position)
+		print("DEBUG: Enemy at distance: ", dist)
+
+		if dist <= attack_range:
+			nearby_enemies.append(enemy)
+
+	print("DEBUG: Attack range: ", attack_range)
+	print("DEBUG: Nearby enemies count: ", nearby_enemies.size())
+
+	if nearby_enemies.is_empty():
+		return null
+
+	return nearby_enemies[randi() % nearby_enemies.size()]
 
 func _random_direction() -> Vector2:
 	var angle := randf_range(0.0, TAU)
