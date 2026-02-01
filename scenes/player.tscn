@@ -18,9 +18,4 @@ texture = ExtResource("1_674bo")
 shape = SubResource("RectangleShape2D_q7r4k")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=822153762]
-zoom = Vector2(3.75, 3.75)
-
-[node name="FireTimer" type="Timer" parent="." unique_id=1948194971]
-wait_time = 0.2
-
-[connection signal="timeout" from="FireTimer" to="." method="_attack"]
+zoom = Vector2(2.75, 2.75)
