@@ -1,3 +1,5 @@
 [gd_scene format=3 uid="uid://nmcmdabd1mru"]
 
-[node name="Node2D" type="Node2D" unique_id=1684495539]
+[node name="CreditsMargin" type="MarginContainer" unique_id=739343735]
+offset_right = 40.0
+offset_bottom = 40.0
