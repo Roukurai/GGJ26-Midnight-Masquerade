@@ -9,7 +9,7 @@ const MASKS := [
 		"id": "white",
 		"region": Rect2(35, 0, 32, 32),
 		"projectile_type": "neutral",
-		"damage": 1,
+		"damage": 50,
 		"fire_rate": 0.25,
 		"projectile_speed": 300,
 		"sprite_index": 0,
