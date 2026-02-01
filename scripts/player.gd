@@ -57,21 +57,17 @@ func _attack():
 
 	# DEBUG: Log enemy detection status
 	var all_enemies := get_tree().get_nodes_in_group(enemy_group)
-	print("DEBUG: Total enemies in group 'Enemy': ", all_enemies.size())
 	
 	var target = _get_random_nearby_enemy()
-	print("DEBUG: Target found: ", target)
 	
 	if target:
 		projectile.direction = (target.global_position - global_position).normalized()
 	else:
 		projectile.direction = _random_direction()
-		print("DEBUG: Using random direction (no nearby enemies)")
 
 func _get_random_nearby_enemy():
 	var nearby_enemies := []
 	var all_group_enemies := get_tree().get_nodes_in_group(enemy_group)
-	print("DEBUG: Checking ", all_group_enemies.size(), " enemies...")
 	
 	for enemy in all_group_enemies:
 		# Skip invalid enemies (queued for deletion)
@@ -79,13 +75,9 @@ func _get_random_nearby_enemy():
 			continue
 
 		var dist := global_position.distance_to(enemy.global_position)
-		print("DEBUG: Enemy at distance: ", dist)
 
 		if dist <= attack_range:
 			nearby_enemies.append(enemy)
-
-	print("DEBUG: Attack range: ", attack_range)
-	print("DEBUG: Nearby enemies count: ", nearby_enemies.size())
 
 	if nearby_enemies.is_empty():
 		return null

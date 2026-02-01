@@ -509,8 +509,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_5h6nw"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 15
-physics_layer_0/collision_mask = 15
+physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_gdvn4")
 
@@ -522,7 +521,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAKABMAAAABAAAAAQALABMAAAACAAAAAQALABM
 tile_set = SubResource("TileSet_5h6nw")
 
 [node name="Totem" parent="." unique_id=1240679494 instance=ExtResource("2_fpe6o")]
-position = Vector2(485, 291)
+position = Vector2(435, 309)
 
 [node name="EnemyManagerr" type="Node2D" parent="." unique_id=2041394375 node_paths=PackedStringArray("spawnPoints", "targetTotem")]
 script = ExtResource("6_k8cv4")
