@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed := 100.0
 @export var attack_distance := 40.0
 @export var attack_cooldown := 1.0
+@export var health := 100
 
 var enemyType
 var targets: Node2D
@@ -26,10 +27,13 @@ func set_target(target: Node2D):
 func apply_stats():
 	match enemyType:
 		0: # Tank
-			speed = 50
+			health = 100
+			speed = 25
 		1: # Rouge
+			health = 50
 			speed = 100
 		2: #Crow control
+			health = 75
 			speed = 75
 			
 func _physics_process(delta):
@@ -64,3 +68,14 @@ func attack():
 	print("Attack!")
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
+
+func take_damage(damage: int):
+	if(damage > 0):
+		health -= damage
+		
+	if(health <= 0):
+		#animacion muerte
+		print("Muerto")
+		await get_tree().create_timer(attack_cooldown).timeout
+		queue_free()
+	pass
