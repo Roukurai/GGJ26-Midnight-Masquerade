@@ -23,6 +23,15 @@ class_name MusicController
 
 var current_enemy_layer := 0
 
+# Helper function to safely create a timer
+# Returns null if get_tree() is null
+func safe_create_timer(duration: float) -> SceneTreeTimer:
+	var tree := get_tree()
+	if tree == null:
+		push_error("[MUSIC] ERROR: Cannot create timer - get_tree() is null!")
+		return null
+	return tree.create_timer(duration)
+
 func fade_in(player: AudioStreamPlayer):
 	player.play()
 	player.volume_db = -80
@@ -98,8 +107,14 @@ func enemies_defeated():
 		if layer.playing:
 			fade_out(layer)
 
-	# Return to interlude
-	await get_tree().create_timer(fade_time).timeout
+	# Return to interlude - validate get_tree() is not null
+	print("[MUSIC] Waiting for fade out (%.1fs)" % fade_time)
+	var timer := safe_create_timer(fade_time)
+	if timer:
+		await timer.timeout
+	else:
+		print("[MUSIC] ERROR: Failed to create fade timer, skipping wait")
+	
 	enter_map()
 
 
@@ -114,7 +129,11 @@ func run_test_gameplay_loop() -> void:
 	
 	# Exploration phase - 10 seconds
 	print("[MUSIC TEST] Exploration phase - waiting 10s")
-	await get_tree().create_timer(10.0).timeout
+	var timer := safe_create_timer(10.0)
+	if timer:
+		await timer.timeout
+	else:
+		print("[MUSIC TEST] ERROR: Failed to create timer, skipping wait")
 	
 	# Initiate wave - enemies appear
 	print("[MUSIC TEST] Wave starts - enemies appear")
@@ -122,14 +141,22 @@ func run_test_gameplay_loop() -> void:
 
 	# Enemy Layer 1 plays (started by enemies_appear)
 	print("[MUSIC TEST] Enemy Layer 1 playing - waiting 10s")
-	await get_tree().create_timer(10.0).timeout
+	timer = safe_create_timer(10.0)
+	if timer:
+		await timer.timeout
+	else:
+		print("[MUSIC TEST] ERROR: Failed to create timer, skipping wait")
 
 	# Advance through remaining enemy layers (Lyr2, Lyr3, Lyr4)
 	for i in range(enemy_layers.size() - 1):
 		print("[MUSIC TEST] Advancing to enemy layer ", current_enemy_layer + 2)
 		enemy_next_layer()
 		print("[MUSIC TEST] Waiting 10s")
-		await get_tree().create_timer(10.0).timeout
+		timer = safe_create_timer(10.0)
+		if timer:
+			await timer.timeout
+		else:
+			print("[MUSIC TEST] ERROR: Failed to create timer, skipping wait")
 
 	print("[MUSIC TEST] Wave defeated - returning to interlude")
 	enemies_defeated()
